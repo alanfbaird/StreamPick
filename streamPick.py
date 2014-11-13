@@ -794,9 +794,9 @@ class streamPick(QtGui.QMainWindow):
             self.setWindowTitle('Create new Bandpass-Filter')
 
             # Frequency QDoubleSpinBoxes
-            self.frqmin = QtGui.QDoubleSpinBox(decimals=2, maximum=100,
+            self.frqmin = QtGui.QDoubleSpinBox(decimals=2, maximum=2000,
                             minimum=0.01, singleStep=0.1, value=0.1)
-            self.frqmax = QtGui.QDoubleSpinBox(decimals=2, maximum=100,
+            self.frqmax = QtGui.QDoubleSpinBox(decimals=2, maximum=2000,
                             minimum=0.01, singleStep=0.1, value=10.0)
 
             # Radio buttons for corners
