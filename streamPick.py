@@ -13,7 +13,7 @@ from matplotlib.transforms import offset_copy
 
 
 class streamPick(QtGui.QMainWindow):
-    def __init__(self, stream=None, parent=None):
+    def __init__(self, stream=None, inpcat=None, parent=None):
         # Initialising QtGui
         qApp = QtGui.QApplication(sys.argv)
 
@@ -47,6 +47,12 @@ class streamPick(QtGui.QMainWindow):
         self._initStations()  # defines list self._stations
         self._stationCycle = cycle(self._stations)
         self._streamStation(self._stationCycle.next())
+        
+        if inpcat is not None:
+           str(inpcat)
+           cat = event.readEvents(inpcat)
+           self._picks = cat[0].picks
+           
         # Init QtGui
         QtGui.QMainWindow.__init__(self)
         self.setupUI()
@@ -333,6 +339,7 @@ class streamPick(QtGui.QMainWindow):
         '''
         Draw picklines onto axes
         '''
+
         picks = self._getPicks()
         xpicks = self._getPickXPosition(picks)
 
